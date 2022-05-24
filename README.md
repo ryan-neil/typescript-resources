@@ -4,7 +4,7 @@ TypeScript is a superset of the JavaScript language that has a single open-sourc
 
 _"Would you rather have "silly" errors during development, or insanity-inducing errors in production?"_ - ConfuciusBateman
 
-Also, checkout how we can use TypeScript with React over in the [React Section]() of the repo!
+Also, checkout how we can use TypeScript with React over in the [React Section](https://github.com/ryan-neil/typescript-resources/tree/main/react) of the repo!
 
 ### Resources
 
@@ -55,7 +55,7 @@ Cons:
 
 ### Basic Types:
 
-```ts
+```tsx
 // good
 const id: number = 7;
 const name: string = 'Katie;
@@ -67,7 +67,7 @@ something = true;
 
 Array Types:
 
-```ts
+```tsx
 // good
 const heros: string[] = ['Thor', 'Iron Man', 'Hulk']; // this can only hold an array of strings
 const years: number[] = [1992, 1988, 1993]; // this can only hold an array of numbers
@@ -78,7 +78,7 @@ Tuples:
 
 With tuples we can specify the exact types within the array.
 
-```ts
+```tsx
 // good
 const person: [number, string, boolean] = [2, 'Katie', true];
 
@@ -88,7 +88,7 @@ const person: [number, string, boolean] = [2, 'Katie', 7]; // error: expects las
 
 Tuple Array:
 
-```ts
+```tsx
 // good
 let employee: [number, string][];
 
@@ -103,7 +103,7 @@ Unions:
 
 If we want a particular variable to hold more than one type we can achieve this with _Unions_.
 
-```ts
+```tsx
 // good
 let id: number | string = 7;
 id = 'Katie';
@@ -116,7 +116,7 @@ Enums (Enumerated Types):
 
 Enums allow us to define a set of named constants either numeric or strings.
 
-```ts
+```tsx
 // numeric
 
 enum Direction {
@@ -132,7 +132,7 @@ console.log(Direction.Down); // -> 1 ...
 
 We can also set default values for `enums`:
 
-```ts
+```tsx
 // numeric
 
 enum Direction {
@@ -159,7 +159,7 @@ console.log(Direction.Down); // -> Down
 
 Objects:
 
-```ts
+```tsx
 // okay
 const user: {
   id: number;
@@ -185,7 +185,7 @@ Type Assertion;
 
 This is explicitly telling the compiler that we want to treat an entity as a different type.
 
-```ts
+```tsx
 // original type = any
 let cid: any = 7;
 
@@ -199,7 +199,7 @@ let customerId = cid as number;
 
 Each argument being passed in has to be a certain type, as well as the function return value.
 
-```ts
+```tsx
 // with return value
 function sumNums(x: number, y: number): number {
   return x + y;
@@ -215,7 +215,7 @@ function logger(msg: string | number): void {
 
 This can be considered like a custom type or a specific structure to an object or a function.
 
-```ts
+```tsx
 // define the interface
 interface UserInterface {
   id: number;
@@ -235,7 +235,7 @@ const user: UserInterface = {
 
 Optional properties:
 
-```ts
+```tsx
 interface UserInterface {
   id: number;
   name: string;
@@ -251,7 +251,7 @@ const user: UserInterface = {
 
 Read-only properties:
 
-```ts
+```tsx
 interface UserInterface {
   readonly id: number; // this property is unchangeable
   name: string;
@@ -269,7 +269,7 @@ user.id = 7;
 
 Interfaces with functions:
 
-```ts
+```tsx
 interface MathFunc {
   // x arg is type number, y arg is type number and return value is type number
   (x: number, y: number): number;
@@ -283,7 +283,7 @@ const sub: MathFunc = (x: number, y: number): number => x - y;
 
 Generics are basically used to build reusable components.
 
-```ts
+```tsx
 function getArray(items: any[]): any[] {
   return [...items];
 }
@@ -298,7 +298,7 @@ console.log(numArray); // -> [ 2, 4, 6, 3, 'Hello' ]
 
 To make it so `numArray` can only take in type number we can use a generic `<T>`. Let's refactor the above code to represent this:
 
-```ts
+```tsx
 function getArray<T>(items: T[]): T[] {
   return [...items];
 }
