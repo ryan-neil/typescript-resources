@@ -1,4 +1,4 @@
-import { useUsersQuery } from '../services/usersApi';
+import { useUsersQuery } from '../services/users.api';
 import UserData from './UserData';
 
 const Users = () => {

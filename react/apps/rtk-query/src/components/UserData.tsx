@@ -1,4 +1,4 @@
-import { useUserQuery } from '../services/usersApi';
+import { useUserQuery } from '../services/users.api';
 
 const UserData = ({ id }: { id: number }) => {
   const { data } = useUserQuery(id);
