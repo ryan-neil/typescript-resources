@@ -53,7 +53,7 @@ export const usersApi = createApi({
   }),
 });
 
-// export the hook
+// export the api hooks
 export const {
   useUsersQuery,
   useUserQuery,

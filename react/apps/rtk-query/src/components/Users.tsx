@@ -1,4 +1,7 @@
 import { useUsersQuery } from '../services/users.api';
+import AddUser from './AddUser';
+import UpdateUser from './UpdateUser';
+import DeleteUser from './DeleteUser';
 import UserData from './UserData';
 
 const Users = () => {
@@ -10,6 +13,9 @@ const Users = () => {
 
   return (
     <>
+      <AddUser />
+      <UpdateUser />
+      <DeleteUser />
       <h2>Users</h2>
       <ul>
         {isSuccess &&

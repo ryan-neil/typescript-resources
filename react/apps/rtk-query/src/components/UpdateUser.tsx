@@ -3,7 +3,7 @@ import { useUpdateUserMutation } from '../services/users.api';
 const UpdateUser = () => {
   const [updateUser] = useUpdateUserMutation();
 
-  // static user data, this should be replaced with a form
+  // static request body
   const updatedUser = {
     id: 4,
     firstname: 'Han-Man',

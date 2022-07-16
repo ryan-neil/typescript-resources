@@ -3,7 +3,7 @@ import { useDeleteUserMutation } from '../services/users.api';
 const DeleteUser = () => {
   const [deleteUser] = useDeleteUserMutation();
 
-  // static user data, this should be replaced with a form
+  // static request body
   const deletedUser = {
     id: 4,
   };
