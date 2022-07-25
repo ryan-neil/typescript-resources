@@ -15,17 +15,19 @@ interface BaseClaims {
   sub: string
   iss: string
 }
-
-interface WalgreensClaims extends BaseClaims {
+interface WalgreensClaims {
   provider: string
   GivenName: string
   LastName: string
 }
-
-interface CircleKClaims extends BaseClaims {
+interface CircleKClaims {
   provider: string
   first_name: string
   last_name: string
+}
+interface ClaimsMap {
+  walgreens: BaseClaims & WalgreensClaims
+  circleK: BaseClaims & CircleKClaims
 }
 
 interface CsiClaims {
@@ -51,11 +53,11 @@ interface CsiClaims {
   }
 }
 
-type EnrichedClaims<T> = T & { csi: CsiClaims }
+// type EnrichedClaims<T> = T & { csi: CsiClaims }
 
-function enrichToken<T extends WalgreensClaims & CircleKClaims>(
-  token: T
-): EnrichedClaims<T> {
+function enrichToken<Provider extends keyof ClaimsMap>(
+  token: ClaimsMap[Provider]
+): ClaimsMap[Provider] & { csi: CsiClaims } {
   const isEmpty = (obj: object) => {
     return (
       obj &&
